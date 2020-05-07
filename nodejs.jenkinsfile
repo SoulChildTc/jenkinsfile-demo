@@ -1,0 +1,20 @@
+pipeline{
+    agent {
+        node {
+            label: "master"
+        }
+    }
+    parameters{
+        choice(choice: ["-v","build"],description: "npm",name: "buildShell")
+    }
+    stages{
+        stage("npm构建"){
+            steps{
+                script{
+                    nodejs_home = tool "NPM"
+                    sh "${nodejs_home}/bin/npm ${buildShell}"
+                }
+            }
+        }
+    }
+}
