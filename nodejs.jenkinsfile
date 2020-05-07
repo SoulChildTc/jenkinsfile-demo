@@ -6,7 +6,15 @@ pipeline{
         choice(choices: ["-v","build"],description: "npm",name: "buildShell")
     }
     stages{
-        stage("npm构建"){
+        stage("node"){
+            steps{
+                script{
+                    nodejs_home = tool "NPM"
+                    sh "${nodejs_home}/bin/node ${buildShell}"
+                }
+            }
+        }
+	stage("npm"){
             steps{
                 script{
                     nodejs_home = tool "NPM"
