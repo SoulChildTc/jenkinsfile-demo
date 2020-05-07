@@ -1,0 +1,17 @@
+pipeline {
+    agent { 
+        node { label "master" } 
+    }
+
+    stages {
+        stage("构建") {
+            steps{
+                script{
+                    mvnHome = tool "M2"
+                    sh "${mvnHome}/bin/mvn -v"
+                }
+            }
+        }
+    }
+}
+
