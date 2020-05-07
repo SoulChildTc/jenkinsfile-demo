@@ -10,7 +10,8 @@ pipeline{
             steps{
                 script{
                     nodejs_home = tool "NPM"
-                    sh "export PATH=\$PATH:${nodejs_home}/bin && ${nodejs_home}/bin/npm ${buildShell}"
+                    // sh "export PATH=\$PATH:${nodejs_home}/bin && ${nodejs_home}/bin/npm ${buildShell}"
+		    sh "${nodejs_home}/bin/npm ${buildShell}"
                 }
             }
         }
