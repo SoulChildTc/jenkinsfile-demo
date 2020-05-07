@@ -3,7 +3,7 @@ pipeline{
         node { label "master" }
     }
     parameters{
-        choice(choice: ["-v","build"],description: "npm",name: "buildShell")
+        choice(choices: ["-v","build"],description: "npm",name: "buildShell")
     }
     stages{
         stage("npm构建"){
