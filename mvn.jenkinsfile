@@ -2,7 +2,7 @@
 @Library('jenkins-sharelibrary@master')
 
 
-def build = new org.devops.build()
+def build = new org.devops.tools()
 pipeline {
     agent { 
         node { label "master" } 
