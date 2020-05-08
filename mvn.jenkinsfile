@@ -16,7 +16,7 @@ pipeline {
         stage("构建") {
             steps{
                 script{
-                    build("mvn","${buildShell}")
+                    build.build("mvn","${buildShell}")
                 }
             }
         }
