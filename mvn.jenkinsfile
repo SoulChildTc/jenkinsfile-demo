@@ -9,6 +9,7 @@ pipeline {
     }
 
     parameters {
+        choice(choices: ['mvn', 'node'], description: '构建类型', name: 'buildType')
         choice(choices: ['clean', 'clean package', '-v'], description: '构建命令', name: 'buildShell')
     }
 
@@ -16,7 +17,7 @@ pipeline {
         stage("构建") {
             steps{
                 script{
-                    build.build("mvn","${buildShell}")
+                    build.build("${buildType}","${buildShell}")
                 }
             }
         }
